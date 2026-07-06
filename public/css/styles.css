@@ -117,6 +117,21 @@ main {
   min-height: 60vh;
 }
 
+.today-view {
+  margin-bottom: var(--space-4);
+}
+
+.today-view h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin: 0 0 var(--space-2);
+}
+
+.today-view .broker-grid:empty,
+.today-view .empty-state {
+  margin: 0;
+}
+
 .progress-io {
   display: flex;
   flex-direction: column;
