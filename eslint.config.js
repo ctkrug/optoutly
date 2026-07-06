@@ -11,7 +11,10 @@ export default [
         document: "readonly",
         localStorage: "readonly",
         fetch: "readonly",
-        console: "readonly"
+        console: "readonly",
+        Blob: "readonly",
+        URL: "readonly",
+        FileReader: "readonly"
       }
     }
   },
