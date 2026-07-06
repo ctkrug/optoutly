@@ -51,6 +51,23 @@ body {
   color: var(--accent);
 }
 
+/* Signature detail (DESIGN.md §4): a faint, slightly tilted rubber-stamp ring
+   behind the "O", as if the wordmark were itself stamped onto the folder tab. */
+.stamp-o::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .tagline {
   color: var(--text-muted);
   margin: var(--space-1) 0 0;
