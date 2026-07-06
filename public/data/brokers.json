@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-07-06",
+  "brokers": [
+    {
+      "id": "spokeo",
+      "name": "Spokeo",
+      "category": "people-search",
+      "website": "https://www.spokeo.com",
+      "optOutUrl": "https://www.spokeo.com/optout",
+      "recheckDays": 180,
+      "notes": "Opt-out requires email confirmation. Profiles can reappear after new data pulls."
+    },
+    {
+      "id": "whitepages",
+      "name": "Whitepages",
+      "category": "people-search",
+      "website": "https://www.whitepages.com",
+      "optOutUrl": "https://www.whitepages.com/suppression-requests",
+      "recheckDays": 180,
+      "notes": "Suppression request tool; also owns some smaller lookup sites."
+    },
+    {
+      "id": "beenverified",
+      "name": "BeenVerified",
+      "category": "background-check",
+      "website": "https://www.beenverified.com",
+      "optOutUrl": "https://www.beenverified.com/app/optout/search",
+      "recheckDays": 180,
+      "notes": "Part of the PeopleConnect network (shares data with TruthFinder, Instant Checkmate)."
+    },
+    {
+      "id": "intelius",
+      "name": "Intelius",
+      "category": "background-check",
+      "website": "https://www.intelius.com",
+      "optOutUrl": "https://www.intelius.com/opt-out",
+      "recheckDays": 180,
+      "notes": "Also powers ZabaSearch and Public Records Now opt-outs."
+    },
+    {
+      "id": "peoplefinders",
+      "name": "PeopleFinders",
+      "category": "people-search",
+      "website": "https://www.peoplefinders.com",
+      "optOutUrl": "https://www.peoplefinders.com/opt-out",
+      "recheckDays": 180,
+      "notes": "Shares infrastructure with TruePeopleSearch's parent network."
+    },
+    {
+      "id": "radaris",
+      "name": "Radaris",
+      "category": "people-search",
+      "website": "https://radaris.com",
+      "optOutUrl": "https://radaris.com/page/how-to-remove",
+      "recheckDays": 120,
+      "notes": "Known to be slow to honor removals; re-check sooner than most."
+    },
+    {
+      "id": "mylife",
+      "name": "MyLife",
+      "category": "people-search",
+      "website": "https://www.mylife.com",
+      "optOutUrl": "https://www.mylife.com/ccpa/index.pubview",
+      "recheckDays": 180,
+      "notes": "Reputation-score profiles; opt-out is via the CCPA request form."
+    },
+    {
+      "id": "truthfinder",
+      "name": "TruthFinder",
+      "category": "background-check",
+      "website": "https://www.truthfinder.com",
+      "optOutUrl": "https://www.truthfinder.com/opt-out/",
+      "recheckDays": 180,
+      "notes": "Part of the PeopleConnect network; opting out here does not cover BeenVerified."
+    },
+    {
+      "id": "instant-checkmate",
+      "name": "Instant Checkmate",
+      "category": "background-check",
+      "website": "https://www.instantcheckmate.com",
+      "optOutUrl": "https://www.instantcheckmate.com/opt-out/",
+      "recheckDays": 180,
+      "notes": "Part of the PeopleConnect network."
+    },
+    {
+      "id": "ussearch",
+      "name": "USSearch",
+      "category": "people-search",
+      "website": "https://www.ussearch.com",
+      "optOutUrl": "https://www.ussearch.com/opt-out/",
+      "recheckDays": 180,
+      "notes": "Owned by PeopleConnect."
+    },
+    {
+      "id": "peoplelooker",
+      "name": "PeopleLooker",
+      "category": "people-search",
+      "website": "https://www.peoplelooker.com",
+      "optOutUrl": "https://www.peoplelooker.com/optout.php",
+      "recheckDays": 180,
+      "notes": "Requires locating your profile first, then submitting the removal form."
+    },
+    {
+      "id": "nuwber",
+      "name": "Nuwber",
+      "category": "people-search",
+      "website": "https://nuwber.com",
+      "optOutUrl": "https://nuwber.com/removal/link",
+      "recheckDays": 180,
+      "notes": "Removal form sends a confirmation email that must be clicked."
+    },
+    {
+      "id": "fastpeoplesearch",
+      "name": "FastPeopleSearch",
+      "category": "people-search",
+      "website": "https://www.fastpeoplesearch.com",
+      "optOutUrl": "https://www.fastpeoplesearch.com/removal",
+      "recheckDays": 120,
+      "notes": "Free lookup site; historically re-lists data faster than paid competitors."
+    },
+    {
+      "id": "familytreenow",
+      "name": "FamilyTreeNow",
+      "category": "people-search",
+      "website": "https://www.familytreenow.com",
+      "optOutUrl": "https://www.familytreenow.com/optout",
+      "recheckDays": 180,
+      "notes": "Genealogy-framed people search; opt-out requires finding your exact record."
+    },
+    {
+      "id": "peekyou",
+      "name": "PeekYou",
+      "category": "people-search",
+      "website": "https://www.peekyou.com",
+      "optOutUrl": "https://www.peekyou.com/about/contact/optout/",
+      "recheckDays": 180,
+      "notes": "Aggregates social media and public profile links."
+    },
+    {
+      "id": "clustrmaps",
+      "name": "ClustrMaps",
+      "category": "people-search",
+      "website": "https://clustrmaps.com",
+      "optOutUrl": "https://clustrmaps.com/bl/opt-out",
+      "recheckDays": 180,
+      "notes": "Address-lookup site; opt-out is per-address."
+    },
+    {
+      "id": "thatsthem",
+      "name": "ThatsThem",
+      "category": "people-search",
+      "website": "https://thatsthem.com",
+      "optOutUrl": "https://thatsthem.com/optout",
+      "recheckDays": 120,
+      "notes": "Free lookup site with frequent data refreshes."
+    },
+    {
+      "id": "usphonebook",
+      "name": "USPhonebook",
+      "category": "people-search",
+      "website": "https://www.usphonebook.com",
+      "optOutUrl": "https://www.usphonebook.com/opt-out/",
+      "recheckDays": 180,
+      "notes": "Opt-out requires the exact profile URL for your listing."
+    },
+    {
+      "id": "acxiom",
+      "name": "Acxiom (LiveRamp)",
+      "category": "marketing",
+      "website": "https://www.acxiom.com",
+      "optOutUrl": "https://isapps.acxiom.com/optout/optout.aspx",
+      "recheckDays": 365,
+      "notes": "Large marketing-data aggregator; feeds many downstream advertisers."
+    },
+    {
+      "id": "lexisnexis",
+      "name": "LexisNexis Risk Solutions",
+      "category": "background-check",
+      "website": "https://risk.lexisnexis.com",
+      "optOutUrl": "https://optout.lexisnexis.com/",
+      "recheckDays": 365,
+      "notes": "Feeds background-check and identity-verification products; opt-out can take weeks to process."
+    },
+    {
+      "id": "corelogic",
+      "name": "CoreLogic",
+      "category": "background-check",
+      "website": "https://www.corelogic.com",
+      "optOutUrl": "https://www.corelogic.com/privacy-center/",
+      "recheckDays": 365,
+      "notes": "Property and tenant-screening data broker."
+    },
+    {
+      "id": "innovis",
+      "name": "Innovis",
+      "category": "credit-marketing",
+      "website": "https://www.innovis.com",
+      "optOutUrl": "https://www.innovis.com/personal/optout",
+      "recheckDays": 365,
+      "notes": "The fourth major credit bureau; separate opt-out from Equifax/Experian/TransUnion."
+    },
+    {
+      "id": "experian-marketing",
+      "name": "Experian (marketing lists)",
+      "category": "credit-marketing",
+      "website": "https://www.experian.com",
+      "optOutUrl": "https://www.experian.com/privacy/opting_out.html",
+      "recheckDays": 365,
+      "notes": "Opts out of prescreened offer lists, not your core credit file."
+    },
+    {
+      "id": "equifax-marketing",
+      "name": "Equifax (marketing lists)",
+      "category": "credit-marketing",
+      "website": "https://www.equifax.com",
+      "optOutUrl": "https://www.equifax.com/personal/data-breach/opt-out-of-marketing/",
+      "recheckDays": 365,
+      "notes": "Opts out of prescreened offer lists, not your core credit file."
+    },
+    {
+      "id": "transunion-marketing",
+      "name": "TransUnion (marketing lists)",
+      "category": "credit-marketing",
+      "website": "https://www.transunion.com",
+      "optOutUrl": "https://www.transunion.com/consumer-support/opt-out-of-marketing-lists",
+      "recheckDays": 365,
+      "notes": "Opts out of prescreened offer lists, not your core credit file."
+    },
+    {
+      "id": "spydialer",
+      "name": "Spy Dialer",
+      "category": "people-search",
+      "website": "https://www.spydialer.com",
+      "optOutUrl": "https://www.spydialer.com/default.aspx",
+      "recheckDays": 180,
+      "notes": "Reverse phone lookup; removal is handled via their contact form."
+    },
+    {
+      "id": "publicrecordsnow",
+      "name": "Public Records Now",
+      "category": "people-search",
+      "website": "https://www.publicrecordsnow.com",
+      "optOutUrl": "https://www.publicrecordsnow.com/optout/",
+      "recheckDays": 180,
+      "notes": "Part of the Intelius network."
+    },
+    {
+      "id": "smartbackgroundchecks",
+      "name": "Smart Background Checks",
+      "category": "background-check",
+      "website": "https://www.smartbackgroundchecks.com",
+      "optOutUrl": "https://www.smartbackgroundchecks.com/optout",
+      "recheckDays": 180,
+      "notes": "Removal form requires matching your listed record exactly."
+    },
+    {
+      "id": "searchpeoplefree",
+      "name": "SearchPeopleFree",
+      "category": "people-search",
+      "website": "https://searchpeoplefree.com",
+      "optOutUrl": "https://searchpeoplefree.com/opt-out",
+      "recheckDays": 120,
+      "notes": "Free lookup site; historically re-lists data quickly."
+    },
+    {
+      "id": "peoplewhiz",
+      "name": "PeopleWhiz",
+      "category": "people-search",
+      "website": "https://www.peoplewhiz.com",
+      "optOutUrl": "https://www.peoplewhiz.com/optout",
+      "recheckDays": 180,
+      "notes": "Removal form requires the profile URL."
+    },
+    {
+      "id": "infotracer",
+      "name": "InfoTracer",
+      "category": "background-check",
+      "website": "https://infotracer.com",
+      "optOutUrl": "https://infotracer.com/opt-out/",
+      "recheckDays": 180,
+      "notes": "Removal is per-record; multiple listings may need separate requests."
+    },
+    {
+      "id": "checkpeople",
+      "name": "CheckPeople",
+      "category": "background-check",
+      "website": "https://www.checkpeople.com",
+      "optOutUrl": "https://www.checkpeople.com/opt-out",
+      "recheckDays": 180,
+      "notes": "Removal form requires locating your report first."
+    },
+    {
+      "id": "cocofinder",
+      "name": "CocoFinder",
+      "category": "people-search",
+      "website": "https://www.cocofinder.com",
+      "optOutUrl": "https://www.cocofinder.com/opt-out",
+      "recheckDays": 180,
+      "notes": "Removal form requires the profile link."
+    }
+  ]
+}
