@@ -1,5 +1,7 @@
 # Optoutly
 
+[![CI](https://github.com/ctkrug/optoutly/actions/workflows/ci.yml/badge.svg)](https://github.com/ctkrug/optoutly/actions/workflows/ci.yml)
+
 A checklist-and-tracker for opting out of the data brokers that resell your personal
 information. Optoutly keeps a curated list of ~40 major US data brokers, tracks which ones
 you've opted out of, tells you when to re-check (many brokers quietly re-list you after a few
