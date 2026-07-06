@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-07-06",
+  "note": "Covers states with an enacted comprehensive consumer privacy law as of mid-2026. Not all 50 states have one yet; this list grows as more laws take effect.",
+  "states": [
+    {
+      "code": "CA",
+      "name": "California",
+      "law": "California Consumer Privacy Act, as amended by the CPRA",
+      "effective": "2023-01-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://oag.ca.gov/privacy/ccpa",
+      "notes": "The broadest US state law; includes a limited private right of action for data breaches."
+    },
+    {
+      "code": "VA",
+      "name": "Virginia",
+      "law": "Virginia Consumer Data Protection Act",
+      "effective": "2023-01-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads"],
+      "authorityUrl": "https://www.oag.state.va.us/consumer-protection/index.php/2023-vcdpa",
+      "notes": "First VCDPA-model law; enforced solely by the state Attorney General."
+    },
+    {
+      "code": "CO",
+      "name": "Colorado",
+      "law": "Colorado Privacy Act",
+      "effective": "2023-07-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://coag.gov/resources/colorado-privacy-act/",
+      "notes": "Requires businesses to honor universal opt-out signals (e.g. Global Privacy Control)."
+    },
+    {
+      "code": "CT",
+      "name": "Connecticut",
+      "law": "Connecticut Data Privacy Act",
+      "effective": "2023-07-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://portal.ct.gov/ag/sections/privacy/the-connecticut-data-privacy-act",
+      "notes": "Also honors universal opt-out signals."
+    },
+    {
+      "code": "UT",
+      "name": "Utah",
+      "law": "Utah Consumer Privacy Act",
+      "effective": "2023-12-31",
+      "rights": ["know", "delete", "opt-out-sale", "opt-out-targeted-ads"],
+      "authorityUrl": "https://consumerprivacy.utah.gov/",
+      "notes": "No right to correct; narrower than the VCDPA-model laws."
+    },
+    {
+      "code": "TX",
+      "name": "Texas",
+      "law": "Texas Data Privacy and Security Act",
+      "effective": "2024-07-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.texasattorneygeneral.gov/consumer-protection/privacy-and-security-laws",
+      "notes": "Applies to smaller businesses than most other state laws (no revenue threshold)."
+    },
+    {
+      "code": "OR",
+      "name": "Oregon",
+      "law": "Oregon Consumer Privacy Act",
+      "effective": "2024-07-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.doj.state.or.us/consumer-protection/data-privacy/",
+      "notes": "Explicitly covers data brokers as a category."
+    },
+    {
+      "code": "MT",
+      "name": "Montana",
+      "law": "Montana Consumer Data Privacy Act",
+      "effective": "2024-10-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.mtdoj.gov/",
+      "notes": "VCDPA-model with lower applicability thresholds."
+    },
+    {
+      "code": "DE",
+      "name": "Delaware",
+      "law": "Delaware Personal Data Privacy Act",
+      "effective": "2025-01-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://attorneygeneral.delaware.gov/fraud/cpu/",
+      "notes": "Low applicability threshold; catches many mid-size data brokers."
+    },
+    {
+      "code": "IA",
+      "name": "Iowa",
+      "law": "Iowa Consumer Data Protection Act",
+      "effective": "2025-01-01",
+      "rights": ["know", "delete", "opt-out-sale", "opt-out-targeted-ads"],
+      "authorityUrl": "https://www.iowaattorneygeneral.gov/",
+      "notes": "No right to correct and no opt-out of profiling."
+    },
+    {
+      "code": "NE",
+      "name": "Nebraska",
+      "law": "Nebraska Data Privacy Act",
+      "effective": "2025-01-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://protectthegoodlife.nebraska.gov/",
+      "notes": "Applies to any business that processes data, with a small-business carveout."
+    },
+    {
+      "code": "NH",
+      "name": "New Hampshire",
+      "law": "New Hampshire Privacy Act",
+      "effective": "2025-01-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.doj.nh.gov/consumer",
+      "notes": "VCDPA-model law."
+    },
+    {
+      "code": "NJ",
+      "name": "New Jersey",
+      "law": "New Jersey Data Privacy Act",
+      "effective": "2025-01-15",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.njoag.gov/",
+      "notes": "Explicitly names data brokers and requires a registry in some contexts."
+    },
+    {
+      "code": "TN",
+      "name": "Tennessee",
+      "law": "Tennessee Information Protection Act",
+      "effective": "2025-07-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.tn.gov/attorneygeneral.html",
+      "notes": "Includes an affirmative-defense provision for NIST-aligned privacy programs."
+    },
+    {
+      "code": "MN",
+      "name": "Minnesota",
+      "law": "Minnesota Consumer Data Privacy Act",
+      "effective": "2025-07-31",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling", "portability"],
+      "authorityUrl": "https://www.ag.state.mn.us/",
+      "notes": "Adds an explicit data-portability right beyond the VCDPA model."
+    },
+    {
+      "code": "MD",
+      "name": "Maryland",
+      "law": "Maryland Online Data Privacy Act",
+      "effective": "2025-10-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.marylandattorneygeneral.gov/",
+      "notes": "Limits data minimization more strictly than most peer states."
+    },
+    {
+      "code": "KY",
+      "name": "Kentucky",
+      "law": "Kentucky Consumer Data Protection Act",
+      "effective": "2026-01-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.ag.ky.gov/",
+      "notes": "VCDPA-model law."
+    },
+    {
+      "code": "RI",
+      "name": "Rhode Island",
+      "law": "Rhode Island Data Transparency and Privacy Protection Act",
+      "effective": "2026-01-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads"],
+      "authorityUrl": "https://riag.ri.gov/",
+      "notes": "Requires disclosing whether data is sold to specific categories of third party."
+    },
+    {
+      "code": "IN",
+      "name": "Indiana",
+      "law": "Indiana Consumer Data Protection Act",
+      "effective": "2026-01-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.in.gov/attorneygeneral/",
+      "notes": "VCDPA-model law."
+    },
+    {
+      "code": "FL",
+      "name": "Florida",
+      "law": "Florida Digital Bill of Rights",
+      "effective": "2024-07-01",
+      "rights": ["know", "delete", "correct", "opt-out-sale", "opt-out-targeted-ads", "opt-out-profiling"],
+      "authorityUrl": "https://www.myfloridalegal.com/",
+      "notes": "Only applies to large companies (very high revenue threshold); check applicability before relying on it."
+    }
+  ]
+}
