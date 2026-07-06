@@ -1,4 +1,10 @@
-import { loadStatuses, setBrokerStatus } from "./lib/storage.js";
+import {
+  loadStatuses,
+  saveStatuses,
+  setBrokerStatus,
+  serializeStatuses,
+  parseImportedStatuses
+} from "./lib/storage.js";
 import { deriveAllBrokerViews, summarize, filterByCategory, sortByRecheckUrgency } from "./lib/brokers.js";
 import { isStale } from "./lib/scheduler.js";
 import { ALL_US_STATES } from "./lib/states.js";
@@ -115,8 +121,58 @@ async function main() {
     });
   }
 
+  setUpProgressIO({
+    getStatuses: () => statuses,
+    onImport: (imported) => {
+      statuses = imported;
+      saveStatuses(window.localStorage, statuses);
+      rerender();
+    }
+  });
+
   rerender();
   renderStateLaws(statesEl, ALL_US_STATES, stateLawData.states);
+}
+
+function setUpProgressIO({ getStatuses, onImport }) {
+  const exportBtn = document.getElementById("export-btn");
+  const importInput = document.getElementById("import-input");
+  const importStatus = document.getElementById("import-status");
+  if (!exportBtn || !importInput || !importStatus) return;
+
+  exportBtn.addEventListener("click", () => {
+    const blob = new Blob([serializeStatuses(getStatuses())], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "optoutly-progress.json";
+    link.click();
+    URL.revokeObjectURL(url);
+  });
+
+  function reportImportError(message) {
+    importStatus.textContent = `Import failed: ${message}`;
+    importStatus.classList.add("import-status--error");
+  }
+
+  importInput.addEventListener("change", () => {
+    const file = importInput.files[0];
+    importInput.value = "";
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = parseImportedStatuses(String(reader.result));
+      if (!result.ok) {
+        reportImportError(result.error);
+        return;
+      }
+      importStatus.classList.remove("import-status--error");
+      importStatus.textContent = "Progress imported.";
+      onImport(result.statuses);
+    };
+    reader.onerror = () => reportImportError("couldn't read the file.");
+    reader.readAsText(file);
+  });
 }
 
 main().catch((error) => {
