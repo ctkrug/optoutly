@@ -1,0 +1,225 @@
+:root {
+  --bg: #f4f1e8;
+  --surface-1: #ece7d8;
+  --surface-2: #fffdf7;
+  --text: #2b2622;
+  --text-muted: #6b6255;
+  --accent: #8a1f11;
+  --accent-support: #1f4d3d;
+  --radius: 3px;
+  --shadow: 0 1px 2px rgba(43, 38, 34, 0.12), 0 4px 10px rgba(43, 38, 34, 0.1);
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --font-display: "Courier Prime", ui-monospace, "SFMono-Regular", monospace;
+  --font-body: "Lora", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+.site-header {
+  padding: var(--space-4) var(--space-3) var(--space-3);
+  text-align: center;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.stamp-o {
+  position: relative;
+  color: var(--accent);
+}
+
+.tagline {
+  color: var(--text-muted);
+  margin: var(--space-1) 0 0;
+}
+
+main {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 0 var(--space-3) var(--space-5);
+}
+
+.loading {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.site-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: var(--space-3);
+}
+
+a {
+  color: var(--accent-support);
+}
+
+button {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  border: 1px solid var(--text-muted);
+  background: var(--surface-2);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+}
+
+button:hover {
+  box-shadow: var(--shadow);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent-support);
+  outline-offset: 2px;
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin: var(--space-3) 0;
+}
+
+.summary-stat {
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-2);
+  min-width: 110px;
+  text-align: center;
+}
+
+.summary-count {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--accent-support);
+}
+
+.summary-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.category-tabs {
+  display: flex;
+  gap: var(--space-1);
+  overflow-x: auto;
+  padding-bottom: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+.category-tab {
+  background: var(--surface-1);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.category-tab.active {
+  background: var(--surface-2);
+  border-color: var(--accent-support);
+  color: var(--accent-support);
+  font-weight: bold;
+}
+
+.broker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-2);
+}
+
+.broker-card {
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.broker-card.recheck-overdue {
+  border-left: 4px solid var(--accent);
+}
+
+.broker-card.status-confirmed {
+  border-left: 4px solid var(--accent-support);
+}
+
+.broker-name {
+  font-family: var(--font-display);
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.broker-category,
+.broker-notes,
+.broker-status-line {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.broker-actions {
+  display: flex;
+  gap: var(--space-1);
+  margin-top: auto;
+}
+
+.empty-state,
+.error-state {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.state-laws {
+  margin-top: var(--space-5);
+  border-top: 1px solid var(--surface-1);
+  padding-top: var(--space-3);
+}
+
+.state-laws select {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: var(--space-1);
+  border-radius: var(--radius);
+  border: 1px solid var(--text-muted);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.state-law-details {
+  margin-top: var(--space-2);
+}

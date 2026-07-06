@@ -1,0 +1,158 @@
+const CATEGORY_LABELS = {
+  all: "All",
+  "people-search": "People search",
+  "background-check": "Background check",
+  marketing: "Marketing",
+  "credit-marketing": "Credit marketing"
+};
+
+const RECHECK_LABELS = {
+  "not-started": "Not started",
+  ok: "On track",
+  "due-soon": "Recheck due soon",
+  overdue: "Recheck overdue"
+};
+
+export function renderSummary(container, summary) {
+  container.innerHTML = "";
+  container.className = "summary";
+  const entries = [
+    ["Confirmed", summary.confirmed],
+    ["Requested", summary.requested],
+    ["Not started", summary.notStarted],
+    ["Overdue rechecks", summary.overdue]
+  ];
+  for (const [label, count] of entries) {
+    const stat = document.createElement("div");
+    stat.className = "summary-stat";
+    stat.innerHTML = `<span class="summary-count">${count}</span><span class="summary-label">${label}</span>`;
+    container.appendChild(stat);
+  }
+}
+
+export function renderCategoryTabs(container, categories, activeCategory, onSelect) {
+  container.innerHTML = "";
+  container.className = "category-tabs";
+  container.setAttribute("role", "tablist");
+  for (const category of categories) {
+    const tab = document.createElement("button");
+    tab.type = "button";
+    tab.className = "category-tab";
+    tab.textContent = CATEGORY_LABELS[category] || category;
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-selected", String(category === activeCategory));
+    if (category === activeCategory) tab.classList.add("active");
+    tab.addEventListener("click", () => onSelect(category));
+    container.appendChild(tab);
+  }
+}
+
+export function renderBrokerCards(container, views, handlers) {
+  container.innerHTML = "";
+  container.className = "broker-grid";
+  if (views.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "empty-state";
+    empty.textContent = "No brokers in this category yet.";
+    container.appendChild(empty);
+    return;
+  }
+  for (const view of views) {
+    container.appendChild(renderBrokerCard(view, handlers));
+  }
+}
+
+function renderBrokerCard(view, { onMarkRequested, onMarkConfirmed }) {
+  const card = document.createElement("article");
+  card.className = `broker-card status-${view.status} recheck-${view.recheckState}`;
+
+  const title = document.createElement("h3");
+  title.className = "broker-name";
+  title.textContent = view.name;
+  card.appendChild(title);
+
+  const category = document.createElement("p");
+  category.className = "broker-category";
+  category.textContent = CATEGORY_LABELS[view.category] || view.category;
+  card.appendChild(category);
+
+  const link = document.createElement("a");
+  link.href = view.optOutUrl;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = "Open opt-out page";
+  card.appendChild(link);
+
+  const notes = document.createElement("p");
+  notes.className = "broker-notes";
+  notes.textContent = view.notes;
+  card.appendChild(notes);
+
+  const statusLine = document.createElement("p");
+  statusLine.className = "broker-status-line";
+  statusLine.textContent = RECHECK_LABELS[view.recheckState];
+  card.appendChild(statusLine);
+
+  const actions = document.createElement("div");
+  actions.className = "broker-actions";
+
+  const requestedBtn = document.createElement("button");
+  requestedBtn.type = "button";
+  requestedBtn.textContent = "Mark requested";
+  requestedBtn.addEventListener("click", () => onMarkRequested(view.id));
+  actions.appendChild(requestedBtn);
+
+  const confirmedBtn = document.createElement("button");
+  confirmedBtn.type = "button";
+  confirmedBtn.textContent = "Mark confirmed";
+  confirmedBtn.addEventListener("click", () => onMarkConfirmed(view.id));
+  actions.appendChild(confirmedBtn);
+
+  card.appendChild(actions);
+  return card;
+}
+
+export function renderStateLaws(container, states) {
+  container.innerHTML = "";
+  container.className = "state-laws";
+  const heading = document.createElement("h2");
+  heading.textContent = "State privacy-law rights";
+  container.appendChild(heading);
+
+  const select = document.createElement("select");
+  select.setAttribute("aria-label", "Choose your state");
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Choose your state…";
+  select.appendChild(placeholder);
+  for (const state of states) {
+    const option = document.createElement("option");
+    option.value = state.code;
+    option.textContent = state.name;
+    select.appendChild(option);
+  }
+  container.appendChild(select);
+
+  const details = document.createElement("div");
+  details.className = "state-law-details";
+  details.setAttribute("aria-live", "polite");
+  container.appendChild(details);
+
+  select.addEventListener("change", () => {
+    const state = states.find((s) => s.code === select.value);
+    details.innerHTML = "";
+    if (!state) return;
+    const title = document.createElement("p");
+    title.innerHTML = `<strong>${state.law}</strong> &mdash; effective ${state.effective}`;
+    const rights = document.createElement("p");
+    rights.textContent = `Rights: ${state.rights.join(", ")}`;
+    const notes = document.createElement("p");
+    notes.textContent = state.notes;
+    const link = document.createElement("a");
+    link.href = state.authorityUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "Enforcing authority";
+    details.append(title, rights, notes, link);
+  });
+}
