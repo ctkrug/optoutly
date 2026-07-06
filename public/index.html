@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Optoutly — track your data broker opt-outs</title>
-  <meta name="description" content="A checklist and re-check scheduler for opting out of major US data brokers." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f4f1e8' stroke='%238a1f11' stroke-width='4'/%3E%3Ctext x='32' y='42' font-family='Courier New,monospace' font-size='30' font-weight='bold' fill='%238a1f11' text-anchor='middle'%3EO%3C/text%3E%3C/svg%3E" />
+  <title>Stampout — opt out of data brokers, and stay out</title>
+  <meta name="description" content="A free checklist and recheck scheduler for opting out of 40 major US data brokers, so you can do it yourself instead of paying a monthly removal service." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f4f1e8' stroke='%238a1f11' stroke-width='4'/%3E%3Ctext x='32' y='43' font-family='Courier New,monospace' font-size='32' font-weight='bold' fill='%238a1f11' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
@@ -13,8 +13,8 @@
 </head>
 <body>
   <header class="site-header">
-    <h1 class="wordmark">Opt<span class="stamp-o">o</span>utly</h1>
-    <p class="tagline">A case file for every data broker that has your information.</p>
+    <h1 class="wordmark">Stamp<span class="stamp-o">o</span>ut</h1>
+    <p class="tagline">Opt out of the data brokers selling your info, and stay out.</p>
     <button id="mute-toggle" type="button" class="mute-toggle" aria-pressed="false">Sound: On</button>
   </header>
 
@@ -25,7 +25,12 @@
   <div id="live-status" class="visually-hidden" role="status" aria-live="polite"></div>
 
   <footer class="site-footer">
-    <p>Data lives only in your browser. Nothing here is sent to a server.</p>
+    <p>Your data lives only in your browser. Nothing here is sent to a server.</p>
+    <p class="footer-links">
+      <a href="https://github.com/ctkrug/optoutly">View source on GitHub</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://apps.charliekrug.com">More by Charlie Krug</a>
+    </p>
   </footer>
 
   <script type="module" src="js/app.js"></script>
