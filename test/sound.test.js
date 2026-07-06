@@ -86,6 +86,28 @@ test("playThump starts an oscillator when unmuted and a context is available", (
   assert.equal(engine.ensureContext().created.length, 1);
 });
 
+test("createSoundEngine works with no store: unmuted, toggles in memory", () => {
+  const engine = createSoundEngine();
+  assert.equal(engine.isMuted(), false);
+  assert.equal(engine.toggleMuted(), true);
+  assert.equal(engine.isMuted(), true);
+  assert.equal(engine.toggleMuted(), false);
+});
+
+test("setMuted(true) stops sounds from starting an oscillator", () => {
+  const engine = createSoundEngine({ store: fakeStore(), AudioContextClass: FakeAudioContext });
+  engine.setMuted(true);
+  engine.playThump();
+  engine.playTick();
+  assert.equal(engine.ensureContext().created.length, 0);
+});
+
+test("playTick starts an oscillator when unmuted and a context is available", () => {
+  const engine = createSoundEngine({ store: fakeStore(), AudioContextClass: FakeAudioContext });
+  engine.playTick();
+  assert.equal(engine.ensureContext().created.length, 1);
+});
+
 test("the AudioContext is constructed lazily, only once a sound plays", () => {
   let constructed = 0;
   class CountingContext extends FakeAudioContext {
