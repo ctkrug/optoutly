@@ -1,4 +1,5 @@
 export const STORAGE_KEY = "optoutly:v1:status";
+export const ONBOARDING_STORAGE_KEY = "optoutly:v1:onboarding-dismissed";
 
 /**
  * All functions take an explicit `store` (anything with getItem/setItem,
@@ -53,6 +54,22 @@ function isValidStatusEntry(entry) {
  * malformed JSON or a mismatched shape comes back as `{ ok: false, error }`
  * so a caller can show an inline message instead of crashing.
  */
+export function isOnboardingDismissed(store) {
+  return store.getItem(ONBOARDING_STORAGE_KEY) === "true";
+}
+
+export function dismissOnboarding(store) {
+  store.setItem(ONBOARDING_STORAGE_KEY, "true");
+}
+
+/**
+ * The onboarding explainer only makes sense before someone has touched any
+ * broker's status, and only until they've dismissed it once.
+ */
+export function shouldShowOnboarding(statuses, dismissed) {
+  return !dismissed && Object.keys(statuses).length === 0;
+}
+
 export function parseImportedStatuses(jsonText) {
   let parsed;
   try {
