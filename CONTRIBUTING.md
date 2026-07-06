@@ -4,7 +4,7 @@
 
 ```
 npm install
-npm test     # node:test suite for public/js/lib
+npm test     # node:test suite (logic, render layer, data contract, app boot)
 npm run lint # eslint
 npx http-server public -p 8080 -s   # preview the site
 ```
@@ -25,4 +25,5 @@ explainer site.
 
 - `public/js/lib/` — framework-free logic, covered by `test/`. Keep DOM access out of this
   directory; if it needs `window` or `document`, it belongs in `render.js`/`app.js` instead.
-- `test/` mirrors `public/js/lib/` one file at a time.
+- `test/` covers the logic modules plus the render layer (DOM builders, via `linkedom`), the
+  shipped data contract, and an app-boot smoke test (harness in `scripts/app-smoke.mjs`).
