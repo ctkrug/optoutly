@@ -1,7 +1,22 @@
 import { loadStatuses, setBrokerStatus } from "./lib/storage.js";
 import { deriveAllBrokerViews, summarize, filterByCategory, sortByRecheckUrgency } from "./lib/brokers.js";
 import { ALL_US_STATES } from "./lib/states.js";
+import { createSoundEngine } from "./lib/sound.js";
 import { renderSummary, renderCategoryTabs, renderBrokerCards, renderStateLaws } from "./render.js";
+
+function setUpMuteToggle(sound) {
+  const button = document.getElementById("mute-toggle");
+  if (!button) return;
+  function sync() {
+    button.textContent = sound.isMuted() ? "Sound: Off" : "Sound: On";
+    button.setAttribute("aria-pressed", String(sound.isMuted()));
+  }
+  sync();
+  button.addEventListener("click", () => {
+    sound.toggleMuted();
+    sync();
+  });
+}
 
 const today = () => new Date().toISOString().slice(0, 10);
 
@@ -19,6 +34,12 @@ async function main() {
     loadJSON("data/brokers.json"),
     loadJSON("data/state-laws.json")
   ]);
+
+  const sound = createSoundEngine({
+    AudioContextClass: window.AudioContext || window.webkitAudioContext,
+    store: window.localStorage
+  });
+  setUpMuteToggle(sound);
 
   app.innerHTML = `
     <div class="dossier">
