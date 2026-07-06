@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stampout — opt out of data brokers, and stay out</title>
   <meta name="description" content="A free checklist and recheck scheduler for opting out of 40 major US data brokers, so you can do it yourself instead of paying a monthly removal service." />
+  <meta property="og:title" content="Stampout — opt out of data brokers, and stay out" />
+  <meta property="og:description" content="A free checklist and recheck scheduler for opting out of 40 major US data brokers. Do it yourself, keep your data in your browser, no removal-service subscription." />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f4f1e8' stroke='%238a1f11' stroke-width='4'/%3E%3Ctext x='32' y='43' font-family='Courier New,monospace' font-size='32' font-weight='bold' fill='%238a1f11' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,6 +26,77 @@
   </main>
 
   <div id="live-status" class="visually-hidden" role="status" aria-live="polite"></div>
+
+  <section class="about" aria-labelledby="about-heading">
+    <div class="about-inner">
+      <h2 id="about-heading">Take yourself off the data-broker market</h2>
+      <p>
+        Data brokers quietly assemble a profile of you from public records, then sell it to
+        anyone who pays: people-search sites, background-check services, and marketing lists.
+        Most are legally required to let you opt out, but there are dozens of them, each with its
+        own form, and several put you back on the market a few months later. Stampout is the
+        checklist that keeps track of all of it.
+      </p>
+      <p>
+        It is built for people who want off these sites without handing a subscription service the
+        exact name, address, and email they are trying to protect. You file each opt-out yourself,
+        mark it confirmed, and Stampout stamps the card and sets a date to check the broker again.
+      </p>
+
+      <h3>How Stampout works</h3>
+      <ol class="steps">
+        <li>
+          Open a broker's opt-out page from its card and submit the request. Mark it
+          <strong>requested</strong> so you remember it is in flight.
+        </li>
+        <li>
+          When the broker confirms the removal, mark it <strong>confirmed</strong>. The card gets a
+          rubber-stamp <strong>OPTED OUT</strong> and a recheck date based on how quickly that
+          broker is known to re-list people.
+        </li>
+        <li>
+          Come back when something is due. The <strong>What to do today</strong> view shows only
+          the brokers that are overdue or due soon, most urgent first.
+        </li>
+      </ol>
+
+      <h3>Frequently asked questions</h3>
+      <dl class="faq">
+        <dt>Is Stampout free?</dt>
+        <dd>
+          Yes. It is a static web page with no account and no backend. Your opt-out progress is
+          saved in your browser, and you can export it to a JSON file to move it to another device.
+        </dd>
+        <dt>Does Stampout remove my data for me?</dt>
+        <dd>
+          No. It never contacts the brokers on your behalf and never sees your personal
+          information. It is a tracker: you file each opt-out through the broker's own form, and
+          Stampout remembers what you have done and when to revisit it.
+        </dd>
+        <dt>Why recheck brokers I already opted out of?</dt>
+        <dd>
+          Several people-search sites rebuild their profiles from fresh public-records pulls, so a
+          listing you removed can reappear months later. Stampout schedules a recheck for each
+          broker using a re-list interval, so the ones most likely to have re-added you rise to the
+          top.
+        </dd>
+        <dt>How is this different from a paid removal service?</dt>
+        <dd>
+          Services like DeleteMe and Incogni file opt-outs for you for a recurring fee, which means
+          giving them the data you are trying to keep private. Stampout keeps you in control: it
+          costs nothing, stores nothing on a server, and shows you every broker so you decide what
+          to file.
+        </dd>
+        <dt>Which brokers and states does it cover?</dt>
+        <dd>
+          The dataset lists 40 major US brokers across people-search, background-check, marketing,
+          and credit-marketing categories, each with a direct opt-out link. The state reference
+          covers every US state and DC, showing which comprehensive privacy law is in force and the
+          rights it gives you.
+        </dd>
+      </dl>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <p>Your data lives only in your browser. Nothing here is sent to a server.</p>

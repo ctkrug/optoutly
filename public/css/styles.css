@@ -226,6 +226,56 @@ main {
   color: var(--text-muted);
 }
 
+.about {
+  background: var(--surface-1);
+  border-top: 1px solid rgba(43, 38, 34, 0.12);
+  padding: var(--space-5) var(--space-3);
+}
+
+.about-inner {
+  max-width: 70ch;
+  margin: 0 auto;
+}
+
+.about-inner h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin: 0 0 var(--space-2);
+}
+
+.about-inner h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+.about-inner p {
+  color: var(--text-muted);
+}
+
+.steps {
+  margin: 0;
+  padding-left: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  color: var(--text-muted);
+}
+
+.steps strong {
+  color: var(--text);
+}
+
+.faq dt {
+  font-weight: 600;
+  margin-top: var(--space-2);
+}
+
+.faq dd {
+  margin: var(--space-1) 0 0;
+  color: var(--text-muted);
+}
+
 .site-footer {
   text-align: center;
   color: var(--text-muted);
