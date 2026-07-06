@@ -80,13 +80,13 @@ export function renderCategoryTabs(container, categories, activeCategory, onSele
   }
 }
 
-export function renderBrokerCards(container, views, handlers) {
+export function renderBrokerCards(container, views, handlers, emptyMessage = "No brokers in this category yet.") {
   container.innerHTML = "";
   container.className = "broker-grid";
   if (views.length === 0) {
     const empty = document.createElement("p");
     empty.className = "empty-state";
-    empty.textContent = "No brokers in this category yet.";
+    empty.textContent = emptyMessage;
     container.appendChild(empty);
     return;
   }
