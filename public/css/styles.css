@@ -174,23 +174,44 @@ button:focus-visible {
 
 .category-tabs {
   display: flex;
+  flex-direction: column;
   gap: var(--space-1);
-  overflow-x: auto;
-  padding-bottom: var(--space-1);
-  margin-bottom: var(--space-3);
 }
 
 .category-tab {
   background: var(--surface-1);
   border: 1px solid transparent;
+  border-left: 3px solid transparent;
   white-space: nowrap;
+  text-align: left;
+  width: 100%;
+  min-height: 44px;
 }
 
 .category-tab.active {
   background: var(--surface-2);
-  border-color: var(--accent-support);
+  border-left-color: var(--accent-support);
   color: var(--accent-support);
   font-weight: bold;
+}
+
+@media (max-width: 860px) {
+  .category-tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: var(--space-1);
+  }
+
+  .category-tab {
+    width: auto;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .category-tab.active {
+    border-left: none;
+    border-bottom-color: var(--accent-support);
+  }
 }
 
 .broker-grid {
