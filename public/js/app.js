@@ -43,6 +43,11 @@ function setUpMuteToggle(sound) {
 
 const today = () => new Date().toISOString().slice(0, 10);
 
+function announce(message) {
+  const region = document.getElementById("live-status");
+  if (region) region.textContent = message;
+}
+
 async function loadJSON(path) {
   const response = await fetch(path);
   if (!response.ok) {
@@ -113,6 +118,9 @@ async function main() {
     onboardingEl.remove();
   }
 
+  const brokerName = (id) =>
+    brokerData.brokers.find((broker) => broker.id === id)?.name ?? id;
+
   function rerender() {
     const views = deriveAllBrokerViews(brokerData.brokers, statuses, today());
     renderSummary(summaryEl, summarize(views));
@@ -125,10 +133,12 @@ async function main() {
       onMarkRequested: (id) => {
         statuses = setBrokerStatus(window.localStorage, statuses, id, "requested", null);
         rerender();
+        announce(`${brokerName(id)} marked as requested.`);
       },
       onMarkConfirmed: (id) => {
         statuses = setBrokerStatus(window.localStorage, statuses, id, "confirmed", today());
         rerender();
+        announce(`${brokerName(id)} marked confirmed. Recheck scheduled.`);
         sound.playThump();
         for (const stamp of app.querySelectorAll(`[data-broker-id="${id}"] .stamp-mark`)) {
           stamp.classList.add("stamp-mark--punch");
