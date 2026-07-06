@@ -5,12 +5,14 @@ import {
   deriveAllBrokerViews,
   summarize,
   filterByCategory,
-  sortByRecheckUrgency
+  sortByRecheckUrgency,
+  selectDueToday
 } from "../public/js/lib/brokers.js";
 
 const SPOKEO = { id: "spokeo", name: "Spokeo", category: "people-search", recheckDays: 180 };
 const RADARIS = { id: "radaris", name: "Radaris", category: "people-search", recheckDays: 120 };
 const ACXIOM = { id: "acxiom", name: "Acxiom", category: "marketing", recheckDays: 365 };
+const MYLIFE = { id: "mylife", name: "MyLife", category: "people-search", recheckDays: 180 };
 
 test("deriveBrokerView defaults to not-started with no stored status", () => {
   const view = deriveBrokerView(SPOKEO, {}, "2026-07-06");
@@ -72,4 +74,28 @@ test("sortByRecheckUrgency puts overdue before due-soon before ok before not-sta
   const views = deriveAllBrokerViews([RADARIS, ACXIOM, SPOKEO], statuses, "2026-07-06");
   const sorted = sortByRecheckUrgency(views);
   assert.deepEqual(sorted.map((v) => v.id), ["spokeo", "radaris", "acxiom"]);
+});
+
+test("selectDueToday keeps only overdue/due-soon, most-overdue first", () => {
+  const statuses = {
+    spokeo: { status: "confirmed", lastChecked: "2025-10-01" }, // overdue since 2026-03-30
+    mylife: { status: "confirmed", lastChecked: "2025-12-01" }, // overdue since 2026-05-31
+    radaris: { status: "confirmed", lastChecked: "2026-03-17" }, // due-soon (due 2026-07-15)
+    acxiom: { status: "confirmed", lastChecked: "2026-06-01" } // ok
+  };
+  const views = deriveAllBrokerViews([SPOKEO, MYLIFE, RADARIS, ACXIOM], statuses, "2026-07-06");
+  const due = selectDueToday(views);
+  assert.deepEqual(due.map((v) => v.id), ["spokeo", "mylife", "radaris"]);
+});
+
+test("selectDueToday excludes not-started and requested-only brokers", () => {
+  const statuses = { radaris: { status: "requested", lastChecked: null } };
+  const views = deriveAllBrokerViews([SPOKEO, RADARIS], statuses, "2026-07-06");
+  assert.deepEqual(selectDueToday(views), []);
+});
+
+test("selectDueToday returns an empty array when nothing is due", () => {
+  const statuses = { acxiom: { status: "confirmed", lastChecked: "2026-06-01" } };
+  const views = deriveAllBrokerViews([ACXIOM], statuses, "2026-07-06");
+  assert.deepEqual(selectDueToday(views), []);
 });
