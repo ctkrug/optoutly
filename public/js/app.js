@@ -62,8 +62,8 @@ async function main() {
         <div id="category-tabs"></div>
         <div class="progress-io">
           <button id="export-btn" type="button">Export progress</button>
-          <label class="import-label" for="import-input">Import progress</label>
           <input id="import-input" type="file" accept="application/json" class="visually-hidden" />
+          <label class="import-label" for="import-input">Import progress</label>
           <p id="import-status" class="import-status" aria-live="polite"></p>
         </div>
       </aside>
