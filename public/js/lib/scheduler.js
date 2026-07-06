@@ -12,6 +12,17 @@ export function toISODate(date) {
   return date.toISOString().slice(0, 10);
 }
 
+/**
+ * True only for a real `YYYY-MM-DD` calendar date. The round-trip check
+ * rejects impossible dates (e.g. 2026-02-30) that `Date` would otherwise
+ * silently roll forward into the next month.
+ */
+export function isValidISODate(iso) {
+  if (typeof iso !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(iso)) return false;
+  const date = new Date(`${iso}T00:00:00Z`);
+  return !Number.isNaN(date.getTime()) && toISODate(date) === iso;
+}
+
 export function addDays(iso, days) {
   const date = parseISODate(iso);
   date.setUTCDate(date.getUTCDate() + days);
@@ -33,7 +44,7 @@ export function nextCheckDate(lastCheckedISO, recheckDays) {
  * confirmed opted-out and how quickly it's known to re-list data.
  */
 export function getRecheckState(lastCheckedISO, recheckDays, todayISO) {
-  if (!lastCheckedISO) return "not-started";
+  if (!isValidISODate(lastCheckedISO)) return "not-started";
   const due = nextCheckDate(lastCheckedISO, recheckDays);
   const daysUntilDue = daysBetween(todayISO, due);
   if (daysUntilDue <= 0) return "overdue";
