@@ -1,4 +1,5 @@
 import {
+  STORAGE_KEY,
   loadStatuses,
   saveStatuses,
   setBrokerStatus,
@@ -173,6 +174,14 @@ async function main() {
 
   rerender();
   renderStateLaws(statesEl, ALL_US_STATES, stateLawData.states);
+
+  // Keep multiple open tabs in sync: when another tab writes the status map,
+  // reload it here instead of letting the next local write clobber the change.
+  window.addEventListener("storage", (event) => {
+    if (event.key !== STORAGE_KEY) return;
+    statuses = loadStatuses(window.localStorage);
+    rerender();
+  });
 }
 
 function setUpProgressIO({ getStatuses, onImport }) {
